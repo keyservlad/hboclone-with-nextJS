@@ -5,7 +5,7 @@ const FeaturedMedia = (props) => {
         className="featured-media__video"
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/QJHY4ggYCk4?autoplay=1&loop=1&start=16&mute=1&enablejsapi=1&loop=1"
+        src="https://www.youtube.com/embed/QJHY4ggYCk4?autoplay=1&version=3&loop=1&playlist=QJHY4ggYCk4&start=16&mute=1&enablejsapi=1"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
@@ -18,12 +18,10 @@ const FeaturedMedia = (props) => {
             In theaters and on HBO MAX. Streaming throughout May 23.
           </div>
           <div className="featured-media__buttons">
-              <div className="featured-media__play-btn">
-                  <i className="fas fa-play"/>
-              </div>
-              <div className="featured-media__info-btn">
-                  MORE INFO
-              </div>
+            <div className="featured-media__play-btn">
+              <i className="fas fa-play" />
+            </div>
+            <div className="featured-media__info-btn">MORE INFO</div>
           </div>
         </div>
       </div>
