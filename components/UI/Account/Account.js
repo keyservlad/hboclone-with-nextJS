@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Account = (props) => {
   const loopComp = (comp, digit) => {
     let thumbnails = [];
@@ -32,22 +34,22 @@ const Account = (props) => {
       <div className="account__menu">
         <ul className="account__main">
           <li>
-            <a href="/" className="active">
+            <Link href="/" className="active">
               My List
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="side-nav__divider" />
         <ul className="account__main">
           <li>
-            <a href="/" className="">
+            <Link href="/" className="">
               Account
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="">
+            <Link href="/" className="">
               Sign Out
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
