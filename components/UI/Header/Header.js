@@ -1,3 +1,5 @@
+import Account from "../Account/Account";
+
 const Header = (props) => {
   return (
     <header className="top-header">
@@ -17,6 +19,7 @@ const Header = (props) => {
         />
         <div className="top-header__user-name">Bryan</div>
       </div>
+      <Account />
     </header>
   );
 };
