@@ -3,6 +3,7 @@
 @use "create-user";
 @use "../components/UI/Header/header";
 @use "../components/UI/SideNav/side-nav";
+@use '../components/UI/FeaturedMedia/FeaturedMedia';
 
 h1 {
   font-size: 3rem;
