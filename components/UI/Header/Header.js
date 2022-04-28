@@ -1,4 +1,5 @@
 import Account from "../Account/Account";
+import SearchModel from "../SearchModel/SearchModel";
 
 const Header = (props) => {
   return (
@@ -20,6 +21,7 @@ const Header = (props) => {
         <div className="top-header__user-name">Bryan</div>
       </div>
       <Account />
+      <SearchModel />
     </header>
   );
 };
