@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { shuffleArray } from "../../utilities";
 
 const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
@@ -8,10 +9,10 @@ const MediaRow = (props) => {
   useEffect(() => {
     axios
       .get(
-        "https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2022&api_key=55efee9a5e42502e7615d0b35ab1f957"
+        `https://api.themoviedb.org/3/${props.endpoint}&api_key=55efee9a5e42502e7615d0b35ab1f957`
       )
       .then((response) => {
-        setMoviesData(response.data.results);
+        setMoviesData(shuffleArray(response.data.results));
         setLoadingData(false);
       });
   }, []);
@@ -47,7 +48,9 @@ const MediaRow = (props) => {
 const Thumbnail = (props) => {
   return (
     <div className="media-row__thumbnail">
-      <img src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`} />
+      <img
+        src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`}
+      />
       <div className="media-row__top-layer">
         <i className="fas fa-play" />
       </div>
