@@ -15,7 +15,7 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia />
-      <MediaRow title="Movies" type="large-v" endpoint="api/..." />
+      <MediaRow title="Best Movies of 2022" type="large-v" endpoint="api/..." />
       <MediaRow title="Series" type="small-h" endpoint="api/..." />
       <MediaRow title="Action" type="small-v" endpoint="api/..." />
       <MediaRow title="Horror" type="small-v" endpoint="api/..." />

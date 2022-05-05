@@ -1,7 +1,20 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const MediaRow = (props) => {
   const [loadingData, setLoadingData] = useState(true);
+  const [movies, setMoviesData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2022&api_key=55efee9a5e42502e7615d0b35ab1f957"
+      )
+      .then((response) => {
+        setMoviesData(response.data.results);
+        setLoadingData(false);
+      });
+  }, []);
 
   const loopComp = (comp, digit) => {
     let thumbnails = [];
@@ -12,10 +25,11 @@ const MediaRow = (props) => {
   };
 
   const showThumbnails = () => {
-    setTimeout(() => setLoadingData(false), 3000);
     return loadingData
       ? loopComp(<Skeleton />, 10)
-      : loopComp(<Thumbnail />, 10);
+      : movies.map((movie) => {
+          return <Thumbnail movieData={movie} />;
+        });
   };
 
   return (
@@ -30,10 +44,10 @@ const MediaRow = (props) => {
   );
 };
 
-const Thumbnail = () => {
+const Thumbnail = (props) => {
   return (
     <div className="media-row__thumbnail">
-      <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2019%2F03%2Favengers-russia-2000.jpg" />
+      <img src={`https://image.tmdb.org/t/p/original${props.movieData.poster_path}`} />
       <div className="media-row__top-layer">
         <i className="fas fa-play" />
       </div>
