@@ -5,6 +5,7 @@ import MainLayout from "../components/Layout/MainLayout";
 import FeaturedMedia from "../components/UI/FeaturedMedia/FeaturedMedia";
 import AuthCheck from "../components/AuthCheck";
 import MediaRow from "../components/UI/MediaRow/MediaRow";
+import { lazyload } from "react-lazyload";
 
 export default function Home() {
   const globalState = useStateContext();
