@@ -1,4 +1,8 @@
+import { useStateContext } from "../components/HBOProvider";
+
 export default function Home() {
+  const globalState = useStateContext();
+
   return (
     <div className="container">
       <div>
@@ -14,7 +18,7 @@ export default function Home() {
                 alt=""
                 className="login-user__user-img"
               />
-              <div className="login-user__user-name">Bryan</div>
+              <div className="login-user__user-name">{globalState.test}</div>
             </div>
           </div>
           <div className="login-user__buttons">
