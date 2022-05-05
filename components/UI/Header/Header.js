@@ -6,15 +6,28 @@ const Header = (props) => {
   const globalState = useStateContext();
 
   return (
-    <header className={`top-header ${globalState.accountModelOpen || globalState.sideNavOpen ? 'top-header--menu-open' : ''}`}>
+    <header
+      className={`top-header ${
+        globalState.accountModelOpen || globalState.sideNavOpen
+          ? "top-header--menu-open"
+          : ""
+      }`}
+    >
       <div className="top-header__left-side">
         <div
           className="top-header__menu-btn"
-          onClick={() => globalState.setSideNavOpenAction(!globalState.sideNavOpen)}
+          onClick={() =>
+            globalState.setSideNavOpenAction(!globalState.sideNavOpen)
+          }
         >
           <i className="fas fa-bars" />
         </div>
-        <div className="top-header__search-btn">
+        <div
+          className="top-header__search-btn"
+          onClick={() =>
+            globalState.setSearchOpenAction(!globalState.searchOpen)
+          }
+        >
           <i className="fas fa-search" />
         </div>
       </div>

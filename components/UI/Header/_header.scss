@@ -11,7 +11,7 @@
   width: 100%;
   z-index: 10;
   transition: background 0.3s ease-in-out;
-  &__menu-btn{
+  &__menu-btn, &__search-btn {
     cursor: pointer;
   }
   &--menu-open{

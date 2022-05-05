@@ -1,4 +1,9 @@
+import { useStateContext } from "../../HBOProvider";
+
+
 const SearchModel = (props) => {
+  const globalState = useStateContext();
+
   const loopComp = (comp, digit) => {
     let thumbnails = [];
     for (let index = 0; index <= digit; index++) {
@@ -7,7 +12,7 @@ const SearchModel = (props) => {
     return thumbnails;
   };
   return (
-    <div className="search-model">
+    <div className={`search-model ${globalState.searchOpen ? 'search-model--active' : ''}`}>
       <div className="search-model__input-group">
         <input
           type="text"
@@ -15,7 +20,7 @@ const SearchModel = (props) => {
           value=""
           className="search-model__input"
         />
-        <div className="search-model__close-btn">
+        <div className="search-model__close-btn" onClick={() => globalState.setSearchOpenAction(!globalState.searchOpen)}>
             <i className="fas fa-times"></i>
         </div>
       </div>
