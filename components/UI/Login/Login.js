@@ -27,7 +27,7 @@ const Login = () => {
     if (!loadingUsers) {
       return users.map((user) => {
         return (
-          <div className="login-user__user-box" key={user.id} onClick={selectUser}>
+          <div className="login-user__user-box" key={user.id} onClick={() => selectUser(user.id)}>
             <img
               src="https://randomuser.me/api/portraits/men/32.jpg"
               alt=""
