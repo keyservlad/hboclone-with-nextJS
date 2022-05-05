@@ -1,6 +1,7 @@
 import Account from "../Account/Account";
 import SearchModel from "../SearchModel/SearchModel";
 import { useStateContext } from "../../HBOProvider";
+import SideNav from "../SideNav/SideNav";
 
 const Header = (props) => {
   const globalState = useStateContext();
@@ -44,6 +45,7 @@ const Header = (props) => {
         />
         <div className="top-header__user-name">Bryan</div>
       </div>
+      <SideNav />
       <Account />
       <SearchModel />
     </header>

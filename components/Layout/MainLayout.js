@@ -1,5 +1,4 @@
 import Header from "../UI/Header/Header";
-import SideNav from "../UI/SideNav/SideNav";
 
 const MainLayout = (props) => {
   return (
@@ -12,7 +11,6 @@ const MainLayout = (props) => {
       }}
     >
       <Header />
-      <SideNav />
       <section className="content-container">{props.children}</section>
     </div>
   );

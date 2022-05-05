@@ -15,11 +15,12 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia />
-      <MediaRow title='Movies' type='large-v' />
-      <MediaRow title='Series' type='small-h' />
-      <MediaRow title='Action' type='small-v' />
-      <MediaRow title='Horror' type='small-v' />
-      <MediaRow title='Sci-fi' type='small-v' />
+      <MediaRow title="Movies" type="large-v" endpoint="api/..." />
+      <MediaRow title="Series" type="small-h" endpoint="api/..." />
+      <MediaRow title="Action" type="small-v" endpoint="api/..." />
+      <MediaRow title="Horror" type="small-v" endpoint="api/..." />
+      <MediaRow title="Animations" type="large-h" endpoint="api/..." />
+      <MediaRow title="Sci-fi" type="small-v" endpoint="api/..." />
     </MainLayout>
   );
 }
