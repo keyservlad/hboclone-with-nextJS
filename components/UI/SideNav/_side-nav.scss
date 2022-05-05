@@ -51,8 +51,8 @@
     }
   }
   @for $i from 0 through 20 {
-    opacity: 1;
     &--active li:nth-child(#{$i + 1}) {
+      opacity: 1;
       transition-delay: 0.15s * $i;
     }
   }

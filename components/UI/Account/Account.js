@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useStateContext } from "../../HBOProvider";
 
 const Account = (props) => {
+  const globalState = useStateContext();
+
   const loopComp = (comp, digit) => {
     let thumbnails = [];
     for (let index = 0; index < digit; index++) {
@@ -9,7 +12,11 @@ const Account = (props) => {
     return thumbnails;
   };
   return (
-    <div className="account">
+    <div
+      className={`account ${
+        globalState.accountModelOpen ? "account--active" : ""
+      }`}
+    >
       <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
@@ -34,8 +41,8 @@ const Account = (props) => {
       <div className="account__menu">
         <ul className="account__main">
           <li>
-            <Link href="/" className="active">
-              My List
+            <Link href="/">
+              <a className="active">My List</a>
             </Link>
           </li>
         </ul>

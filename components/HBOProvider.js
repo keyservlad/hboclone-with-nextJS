@@ -15,11 +15,18 @@ export function HBOProvider({children}){
         // console.log(user);
     }
 
+    const [sideNavOpen, setSideNavOpenAction] = useState(false)
+    const [accountModelOpen, setAccountModelOpenAction] = useState(false)
+
     return(
         <StateContext.Provider value={{
             user,
             createUserAction,
-            defaultUserImg
+            defaultUserImg,
+            sideNavOpen,
+            setSideNavOpenAction,
+            accountModelOpen,
+            setAccountModelOpenAction,
         }}>
             {children}
         </StateContext.Provider>
