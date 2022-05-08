@@ -12,6 +12,7 @@ const MediaRow = (props) => {
         `https://api.themoviedb.org/3/${props.endpoint}&api_key=55efee9a5e42502e7615d0b35ab1f957`
       )
       .then((response) => {
+        console.log(response.data.results);
         setMoviesData(shuffleArray(response.data.results));
         setLoadingData(false);
       });
