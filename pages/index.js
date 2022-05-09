@@ -12,6 +12,7 @@ export default function Home() {
   const router = useRouter;
 
   useEffect(() => {}, []);
+  
 
   return AuthCheck(
     <MainLayout>
