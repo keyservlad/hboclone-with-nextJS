@@ -11,7 +11,6 @@
     flex-wrap: nowrap;
     min-width: 100%;
     width: calc(100vw - 70px);
-    overflow: hidden;
     overflow-x: scroll;
     &::-webkit-scrollbar {
       display: none;

@@ -30,19 +30,11 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
+            rel="preload"
+            as="style"
             href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap"
-            rel="stylesheet"
           />
-          <link
-            href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-            rel="stylesheet"
-            integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-            crossOrigin="anonymous"
-          ></link>
-          <link
-            rel="stylesheet"
-            href="path/to/font-awesome/css/font-awesome.min.css"
-          ></link>
+          <link href="/fontawesome/css/all.min.css" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />
