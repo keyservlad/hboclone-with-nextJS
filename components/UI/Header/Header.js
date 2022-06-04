@@ -43,7 +43,7 @@ const Header = (props) => {
           src="https://randomuser.me/api/portraits/men/32.jpg"
           className="top-header__user-img"
         />
-        <div className="top-header__user-name">Bryan</div>
+        <div className="top-header__user-name">Arnaud</div>
       </div>
       <SideNav />
       <Account />
