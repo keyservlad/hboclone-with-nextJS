@@ -10,6 +10,15 @@
     z-index: 1;
     transform: scale(1.5);
   }
+  &__img {
+    position: absolute;
+    z-index: 1;
+    transform: scale(1.5);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
   &__bg {
     background: linear-gradient(
       180deg,

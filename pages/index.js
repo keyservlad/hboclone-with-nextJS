@@ -17,10 +17,11 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
-        videoUrl="https://www.youtube.com/embed/QJHY4ggYCk4?autoplay=1&version=3&loop=1&playlist=QJHY4ggYCk4&start=16&mute=1&enablejsapi=1"
-        title="Mortal Kombat"
+        mediaUrl="https://www.youtube.com/embed/illDZ9fKSGk?autoplay=1&version=3&loop=1&start=16&mute=1&enablejsapi=1"
+        title="Iron Cowboy: The Story of the 50.50.50 Triathlon"
         location="In theaters and on HBO MAX. Streaming throughout May 23."
-        mediaUrl="/movies/id"
+        linkUrl="/movie/550261"
+        type="front"
       />
       <LazyLoad
         offset={-400}
