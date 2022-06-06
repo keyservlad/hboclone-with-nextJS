@@ -23,6 +23,19 @@ export default function SingleMediaPage(props) {
       .catch((error) => {
         console.log("Error response for " + error);
       });
+    if (!mediaData.backdrop_path) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/tv/${props.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`
+        )
+        .then((response) => {
+          setMediaData(response.data);
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log("Error response for " + error);
+        });
+    }
   }, []);
 
   return AuthCheck(
