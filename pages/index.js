@@ -17,7 +17,7 @@ export default function Home() {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
-        mediaUrl="https://www.youtube.com/embed/illDZ9fKSGk?autoplay=1&version=3&loop=1&start=16&mute=1&enablejsapi=1"
+        mediaUrl="https://www.youtube.com/embed/illDZ9fKSGk?autoplay=1&list=PLSQVEoQCaG6_aNinPM_h50dCxCYbc6kLw&version=3&loop=1&start=16&mute=1&enablejsapi=1"
         title="Iron Cowboy: The Story of the 50.50.50 Triathlon"
         location="In theaters and on HBO MAX. Streaming throughout May 23."
         linkUrl="/movie/550261"
