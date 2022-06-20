@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useStateContext } from "../../HBOProvider";
+import { useEffect } from "react";
 
 const Account = (props) => {
   const globalState = useStateContext();
@@ -11,6 +12,14 @@ const Account = (props) => {
   //   }
   //   return thumbnails;
   // };
+  useEffect(() => {
+    if (globalState.accountModelOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [globalState.accountModelOpen]);
+
   return (
     <div
       className={`account ${

@@ -16,7 +16,7 @@ const CastInfo = (props) => {
         setCredits(response.data);
         setLoadingData(false);
       });
-  }, []);
+  }, [props.updateData]);
 
   const showCast = () => {
     if (loadingData !== true) {

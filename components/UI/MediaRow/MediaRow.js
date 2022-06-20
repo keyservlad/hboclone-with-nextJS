@@ -16,7 +16,7 @@ const MediaRow = (props) => {
         setMoviesData(shuffleArray(response.data.results));
         setLoadingData(false);
       });
-  }, []);
+  }, [props.updateData]);
 
   const loopComp = (comp, digit) => {
     let thumbnails = [
