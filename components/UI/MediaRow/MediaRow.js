@@ -19,10 +19,20 @@ const MediaRow = (props) => {
   }, []);
 
   const loopComp = (comp, digit) => {
-    let thumbnails = [];
-    for (let index = 0; index <= digit; index++) {
-      thumbnails.push(comp);
-    }
+    let thumbnails = [
+      <Skeleton key={"a"} />,
+      <Skeleton key={"b"} />,
+      <Skeleton key={"c"} />,
+      <Skeleton key={"d"} />,
+      <Skeleton key={"e"} />,
+      <Skeleton key={"f"} />,
+      <Skeleton key={"g"} />,
+      <Skeleton key={"h"} />,
+      <Skeleton key={"i"} />,
+    ];
+    // for (let index = 0; index <= digit; index++) {
+    //   thumbnails.push(comp);
+    // }
     return thumbnails;
   };
 
@@ -30,7 +40,14 @@ const MediaRow = (props) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} key={movie.id} type={type} mediaType={props.mediaType}/>;
+          return (
+            <Thumbnail
+              movieData={movie}
+              key={movie.id}
+              type={type}
+              mediaType={props.mediaType}
+            />
+          );
         });
   };
 
@@ -93,7 +110,7 @@ const Skeleton = () => {
 };
 
 MediaRow.defaultProps = {
-  mediaType: "movie"
+	mediaType: 'movie'
 }
 
 export default MediaRow;

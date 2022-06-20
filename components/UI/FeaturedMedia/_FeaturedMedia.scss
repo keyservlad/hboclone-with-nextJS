@@ -5,6 +5,12 @@
   min-height: 700px;
   position: relative;
   overflow: hidden;
+
+  &--single {
+    min-height: 500px;
+    height: 50vh;
+  }
+
   &__video {
     position: absolute;
     z-index: 1;
@@ -85,18 +91,17 @@
       cursor: pointer;
     }
   }
-  &__info-btn{
-      background: grey;
-      color: white;
-      font-weight: 700;
-      font-size: .8rem;
-      width: 100px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 20px;
-      cursor: pointer;
-      
+  &__info-btn {
+    background: grey;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
   }
 }
