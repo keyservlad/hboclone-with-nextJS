@@ -1,10 +1,19 @@
 import { useRouter } from "next/router";
+import { useStateContext } from "../../HBOProvider";
 
 const FeaturedMedia = (props) => {
+  const globalState = useStateContext();
   const router = useRouter();
 
   const clickedPlay = () => {
-    router.push(props.linkUrl)
+    router.push(props.linkUrl);
+  };
+  const clickedAdd = (props) => {
+    globalState.addToList({
+      mediaID: props.mediaID,
+      mediaType: props.mediaType,
+      mediaUrl: props.mediaUrl,
+    });
   };
 
   const showMedia = () => {
@@ -25,7 +34,11 @@ const FeaturedMedia = (props) => {
     }
   };
   return (
-    <div className={`featured-media ${props.type === 'single' ? 'featured-media--single' : ''}`}>
+    <div
+      className={`featured-media ${
+        props.type === "single" ? "featured-media--single" : ""
+      }`}
+    >
       {showMedia()}
       <div className="featured-media__bg">
         <div className="featured-media__container">
@@ -49,6 +62,14 @@ const FeaturedMedia = (props) => {
           <div className="featured-media__buttons">
             <div className="featured-media__play-btn" onClick={clickedPlay}>
               <i className="fas fa-play" />
+            </div>
+            <div
+              className={`featured-media__add-btn ${
+                props.type !== "single" ? "hide-comp" : ""
+              } `}
+              onClick={() => clickedAdd(props)}
+            >
+              <i className="fas fa-plus" />
             </div>
             <div
               className={`featured-media__info-btn ${

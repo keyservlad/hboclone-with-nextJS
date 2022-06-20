@@ -48,6 +48,8 @@ export default function MediaTypePage(props) {
         }
         linkUrl={`/${props.query.mediaType}/${props.featuredData.id}`}
         type="single"
+        mediaType={props.query.mediaType}
+        mediaID={props.featuredData.genre_id}
       />
       <GenreNav
         mediaType={props.query.mediaType}

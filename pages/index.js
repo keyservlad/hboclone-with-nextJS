@@ -12,8 +12,6 @@ export default function Home() {
   const globalState = useStateContext();
   const router = useRouter;
 
-  useEffect(() => {}, []);
-
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
@@ -22,6 +20,8 @@ export default function Home() {
         location="In theaters and on HBO MAX. Streaming throughout May 23."
         linkUrl="/movie/550261"
         type="front"
+        mediaType={"movie"}
+        mediaID={550261}
       />
       <LazyLoad
         offset={-400}

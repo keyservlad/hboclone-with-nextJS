@@ -18,7 +18,6 @@ const Login = () => {
     }
   }, []);
 
-  console.log("declared users", users);
   const selectUser = (id) => {
     ls("activeUID", id);
     router.push("/");

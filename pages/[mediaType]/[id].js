@@ -13,30 +13,30 @@ export default function SingleMediaPage(props) {
   const router = useRouter();
   const [mediaData, setMediaData] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${props.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`
-      )
-      .then((response) => {
-        setMediaData(response.data);
-      })
-      .catch((error) => {
-        console.log("Error response for " + error);
-      });
-    if (!mediaData.backdrop_path) {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/tv/${props.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`
-        )
-        .then((response) => {
-          setMediaData(response.data);
-        })
-        .catch((error) => {
-          console.log("Error response for " + error);
-        });
-    }
-  }, [mediaData]);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://api.themoviedb.org/3/movie/${props.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`
+  //     )
+  //     .then((response) => {
+  //       setMediaData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error response for " + error);
+  //     });
+  //   if (!mediaData.backdrop_path) {
+  //     axios
+  //       .get(
+  //         `https://api.themoviedb.org/3/tv/${props.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`
+  //       )
+  //       .then((response) => {
+  //         setMediaData(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error response for " + error);
+  //       });
+  //   }
+  // }, [mediaData]);
 
   return AuthCheck(
     <MainLayout>
@@ -50,6 +50,8 @@ export default function SingleMediaPage(props) {
         location="In theaters and on HBO MAX. Streaming throughout May 23."
         linkUrl="#"
         type="single"
+        mediaType={props.query.mediaType}
+        mediaID={props.query.id}
       />
       <LazyLoad
         offset={-400}

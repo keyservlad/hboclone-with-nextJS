@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { useStateContext } from "../../HBOProvider";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import ls from "local-storage";
 
 const Account = (props) => {
   const globalState = useStateContext();
+  const router = useRouter();
 
   // const loopComp = (comp, digit) => {
   //   let thumbnails = [];
@@ -20,6 +23,42 @@ const Account = (props) => {
     }
   }, [globalState.accountModelOpen]);
 
+  const watchMedia = (url) => {
+    router.push(url);
+    globalState.setAccountModelOpenAction(!globalState.accountModelOpen);
+  };
+
+  const showWatchList = () => {
+    return globalState.watchList.map((item, index) => {
+      return (
+        <div className="account__watch-video" key={index}>
+          <img src={item.mediaUrl} />
+          <div className="account__watch-overlay">
+            <div className="account__watch-buttons">
+              <div
+                className="account__watch-circle"
+                onClick={() => watchMedia(`/${item.mediaType}/${item.mediaID}`)}
+              >
+                <i className="fas fa-play"></i>
+              </div>
+              <div
+                className="account__watch-circle"
+                onClick={() => globalState.removeFromList(item.mediaID)}
+              >
+                <i className="fas fa-times" />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
+
+  const signOut = () => {
+    ls.remove("users");
+    router.push("/create");
+  };
+
   return (
     <div
       className={`account ${
@@ -29,19 +68,9 @@ const Account = (props) => {
       <div className="account__details">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
-        <div className="account__watch-video">
-              <img src="https://m.media-amazon.com/images/I/713K3DnSH0L._AC_SL1024_.jpg" />
-              <div className="account__watch-overlay">
-                <div className="account__watch-buttons">
-                  <div className="account__watch-circle">
-                    <i className="fas fa-play"></i>
-                  </div>
-                  <div className="account__watch-circle">
-                    <i className="fas fa-times" />
-                  </div>
-                </div>
-              </div>
-            </div>
+          {globalState.watchList !== null && globalState.watchList.length > 0
+            ? showWatchList()
+            : "No movies added"}
         </div>
       </div>
       <div className="account__menu">
@@ -54,15 +83,11 @@ const Account = (props) => {
         </ul>
         <div className="side-nav__divider" />
         <ul className="account__main">
-          <li>
-            <Link href="/" className="">
-              Account
-            </Link>
+          <li onClick={signOut}>
+            <a>Account</a>
           </li>
-          <li>
-            <Link href="/" className="">
-              Sign Out
-            </Link>
+          <li onClick={signOut}>
+            <a>Sign Out</a>
           </li>
         </ul>
       </div>
