@@ -8,7 +8,9 @@ const CastInfo = (props) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${props.mediaID}/credits?api_key=55efee9a5e42502e7615d0b35ab1f957`
+        `https://api.themoviedb.org/3/${
+          props.mediaType === "movie" ? "movie" : "tv"
+        }/${props.mediaID}/credits?api_key=55efee9a5e42502e7615d0b35ab1f957`
       )
       .then((response) => {
         setCredits(response.data);
@@ -52,9 +54,7 @@ const CastInfo = (props) => {
       <div className="cast-info__list">{showCast()}</div>
 
       <div className="cast-info__group-title">Crew</div>
-      <div className="cast-info__list">
-        {showCrew()}
-      </div>
+      <div className="cast-info__list">{showCrew()}</div>
     </div>
   );
 };

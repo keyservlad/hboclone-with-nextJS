@@ -13,7 +13,6 @@ const MediaRow = (props) => {
         `https://api.themoviedb.org/3/${props.endpoint}&api_key=55efee9a5e42502e7615d0b35ab1f957`
       )
       .then((response) => {
-        console.log(response.data.results);
         setMoviesData(shuffleArray(response.data.results));
         setLoadingData(false);
       });
@@ -31,7 +30,7 @@ const MediaRow = (props) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} key={movie.id} type={type} />;
+          return <Thumbnail movieData={movie} key={movie.id} type={type} mediaType={props.mediaType}/>;
         });
   };
 
@@ -64,7 +63,11 @@ const Thumbnail = (props) => {
   };
 
   return (
-    <Link href={`/movie/${props.movieData.id}`}>
+    <Link
+      href={`/${props.mediaType === "movie" ? "movie" : "tv"}/${
+        props.movieData.id
+      }`}
+    >
       <a>
         <div className="media-row__thumbnail">
           <img
@@ -88,5 +91,9 @@ const Skeleton = () => {
     </div>
   );
 };
+
+MediaRow.defaultProps = {
+  mediaType: "movie"
+}
 
 export default MediaRow;

@@ -20,7 +20,6 @@ export default function SingleMediaPage(props) {
       )
       .then((response) => {
         setMediaData(response.data);
-        console.log(response);
       })
       .catch((error) => {
         console.log("Error response for " + error);
@@ -32,7 +31,6 @@ export default function SingleMediaPage(props) {
         )
         .then((response) => {
           setMediaData(response.data);
-          console.log(response);
         })
         .catch((error) => {
           console.log("Error response for " + error);
@@ -43,10 +41,10 @@ export default function SingleMediaPage(props) {
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
-        title={mediaData.title}
-        mediaUrl={`https://image.tmdb.org/t/p/original${mediaData.backdrop_path ? mediaData.backdrop_path : mediaData.poster_path}`}
+        title={props.query.mediaType === 'movie' ? props.mediaData.title : props.mediaData.name}
+        mediaUrl={`https://image.tmdb.org/t/p/original${props.mediaData.backdrop_path}`}
         location="In theaters and on HBO MAX. Streaming throughout May 23."
-        linkUrl="/movie/id"
+        linkUrl="#"
         type="single"
       />
       <LazyLoad
@@ -56,16 +54,23 @@ export default function SingleMediaPage(props) {
         <MediaRow
           title="Similar To This"
           type="small-v"
-          endpoint={`movie/${props.query.id}/similar?`}
+          mediaType={props.query.mediaType}
+          endpoint={`${props.query.mediaType === 'movie' ? "movie" : "tv"}/${props.query.id}/similar?`}
         />
       </LazyLoad>
-      <CastInfo mediaID={props.query.id} />
+      <CastInfo mediaID={props.query.id} mediaType={props.mediaType} />
     </MainLayout>
   );
 }
 
 export async function getServerSideProps(context) {
+  let mediaData;
+  try {
+    mediaData = await axios.get(`https://api.themoviedb.org/3/${context.query.mediaType}/${context.query.id}?api_key=55efee9a5e42502e7615d0b35ab1f957`)
+  } catch (error) {
+    console.log(error);
+  }
   return {
-    props: { query: context.params },
+    props: { mediaData: mediaData.data, query: context.params },
   };
 }
